@@ -3,15 +3,15 @@ using System.Collections;
 
 public enum EnemyType
 {
-	trash,
-	medium,
-	miniBoss,
-	boss
+	Trash,
+	Medium,
+	MiniBoss,
+	Boss
 }
 
 public class Enemy : Entity 
 {
-	public EnemyType enemyType = EnemyType.trash;
+	public EnemyType enemyType = EnemyType.Trash;
 	public float maxChaseDistance = 15.0f;
 
 	public float followTime = 0.0f;
@@ -19,7 +19,7 @@ public class Enemy : Entity
 
 	void Update()
 	{
-		if(fsm.CurrentStateID == EntityStateID.patrol)
+		if(fsm.CurrentStateID == EntityStateID.Patrol)
 		{
 			patrolTime += Time.deltaTime;
 			followTime = 0.0f;
@@ -37,10 +37,10 @@ public class Enemy : Entity
 	public override void MakeFSM()
 	{
 		EnemyPatrolState patrol = new EnemyPatrolState();
-		patrol.AddTransition(EntityTransition.targetSpotted, EntityStateID.chase);
+		patrol.AddTransition(EntityTransition.TargetSpotted, EntityStateID.Chase);
 		
 		EnemyChaseState chase = new EnemyChaseState();
-		chase.AddTransition(EntityTransition.lostTarget, EntityStateID.patrol);
+		chase.AddTransition(EntityTransition.LostTarget, EntityStateID.Patrol);
 		
 		fsm = new EntityFSMSystem();
 		fsm.AddState(patrol);
@@ -52,7 +52,7 @@ public class EnemyPatrolState : EntityFSMState
 {
 	public EnemyPatrolState()
 	{
-		entityStateID = EntityStateID.patrol;
+		entityStateID = EntityStateID.Patrol;
 	}
 
 	public override void Reason (Entity entity)
@@ -76,7 +76,7 @@ public class EnemyPatrolState : EntityFSMState
 		if(hit.transform.CompareTag("Player") || hit.transform.CompareTag("Helper"))
 		{
 			entity.target = hit.transform.gameObject;
-			entity.DoStateTransition(EntityTransition.targetSpotted);
+			entity.DoStateTransition(EntityTransition.TargetSpotted);
 		}
 	}
 	
@@ -90,7 +90,7 @@ public class EnemyChaseState : EntityFSMState
 {
 	public EnemyChaseState()
 	{
-		entityStateID = EntityStateID.chase;
+		entityStateID = EntityStateID.Chase;
 	}
 
 	public override void Reason (Entity entity)
@@ -101,7 +101,7 @@ public class EnemyChaseState : EntityFSMState
 			if(Vector3.Distance(enemy.target.transform.position, entity.transform.position) > enemy.maxChaseDistance || enemy.followTime > 5.0f)
 			{
 				enemy.target = null;
-				enemy.DoStateTransition(EntityTransition.lostTarget);
+				enemy.DoStateTransition(EntityTransition.LostTarget);
 			}
 		}
 	}

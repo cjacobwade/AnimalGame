@@ -34,7 +34,7 @@ public class PlayerNavigation : PlayerComponent
 			}
 		}
 
-		if(target)
+		if(target && Time.frameCount % 30 == 0)
 		{
 			navMeshAgent.SetDestination(target.position);
 		}

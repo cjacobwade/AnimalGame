@@ -3,23 +3,23 @@ using System.Collections;
 
 public enum Element
 {
-	none		= 1 << 0,
-	earth		= 1 << 1,
-	fire		= 1 << 2,
-	ice			= 1 << 3,
-	lightning	= 1 << 4,
-	poison 		= 1 << 5,
-	water		= 1 << 6,
-	wind		= 1 << 7
+	None		= 1 << 0,
+	Earth		= 1 << 1,
+	Fire		= 1 << 2,
+	Ice			= 1 << 3,
+	Lightning	= 1 << 4,
+	Poison 		= 1 << 5,
+	Water		= 1 << 6,
+	Wind		= 1 << 7
 }
 
 public enum SpellEffectType
 {
-	none		= 1 << 0,
-	slow		= 1 << 1,
-	stun		= 1 << 2,
-	knockback	= 1 << 3,
-	fear		= 1 << 4
+	None		= 1 << 0,
+	Slow		= 1 << 1,
+	Stun		= 1 << 2,
+	Knockback	= 1 << 3,
+	Fear		= 1 << 4
 }
 
 public struct SpellEffect

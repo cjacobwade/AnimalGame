@@ -9,9 +9,9 @@ using UnityEngine;
 /// </summary>
 public enum EntityTransition
 {
-	nullTransition 	= 0, // Use this transition to represent a non-existing transition in your system
-	targetSpotted 	= 1,
-	lostTarget 		= 2
+	NullTransition 	= 0, // Use this transition to represent a non-existing transition in your system
+	TargetSpotted 	= 1,
+	LostTarget 		= 2
 }
 
 /// <summary>
@@ -20,10 +20,10 @@ public enum EntityTransition
 /// </summary>
 public enum EntityStateID
 {
-	nullStateID = 0, // Use this ID to represent a non-existing State in your system
-	patrol 		= 1,
-	chase 		= 2,
-	attack 		= 3
+	NullStateID = 0, // Use this ID to represent a non-existing State in your system
+	Patrol 		= 1,
+	Chase 		= 2,
+	Attack 		= 3
 }
 
 /// <summary>
@@ -43,13 +43,13 @@ public abstract class EntityFSMState
 	public void AddTransition(EntityTransition trans, EntityStateID id)
 	{
 		// Check if anyone of the args is invalid
-		if (trans == EntityTransition.nullTransition)
+		if (trans == EntityTransition.NullTransition)
 		{
 			Debug.LogError("FSMState ERROR: NullTransition is not allowed for a real transition");
 			return;
 		}
 		
-		if (id == EntityStateID.nullStateID)
+		if (id == EntityStateID.NullStateID)
 		{
 			Debug.LogError("FSMState ERROR: NullStateID is not allowed for a real ID");
 			return;
@@ -74,7 +74,7 @@ public abstract class EntityFSMState
 	public void DeleteTransition(EntityTransition trans)
 	{
 		// Check for NullTransition
-		if (trans == EntityTransition.nullTransition)
+		if (trans == EntityTransition.NullTransition)
 		{
 			Debug.LogError("FSMState ERROR: NullTransition is not allowed");
 			return;
@@ -101,7 +101,7 @@ public abstract class EntityFSMState
 		{
 			return map[trans];
 		}
-		return EntityStateID.nullStateID;
+		return EntityStateID.NullStateID;
 	}
 	
 	/// <summary>
@@ -192,7 +192,7 @@ public class EntityFSMSystem
 	public void DeleteState(EntityStateID id)
 	{
 		// Check for NullState before deleting
-		if (id == EntityStateID.nullStateID)
+		if (id == EntityStateID.NullStateID)
 		{
 			Debug.LogError("FSM ERROR: NullStateID is not allowed for a real state");
 			return;
@@ -220,7 +220,7 @@ public class EntityFSMSystem
 	public void PerformTransition(EntityTransition trans)
 	{
 		// Check for NullTransition before changing the current state
-		if (trans == EntityTransition.nullTransition)
+		if (trans == EntityTransition.NullTransition)
 		{
 			Debug.LogError("FSM ERROR: NullTransition is not allowed for a real transition");
 			return;
@@ -228,7 +228,7 @@ public class EntityFSMSystem
 		
 		// Check if the currentState has the transition passed as argument
 		EntityStateID id = currentState.GetOutputState(trans);
-		if (id == EntityStateID.nullStateID)
+		if (id == EntityStateID.NullStateID)
 		{
 			Debug.LogError("FSM ERROR: State " + currentStateID.ToString() +  " does not have a target state " + 
 			               " for transition " + trans.ToString());

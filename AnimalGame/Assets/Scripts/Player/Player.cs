@@ -1,22 +1,28 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour 
 {
 	public PlayerNavigation pNavigation;
-	public PlayerEquipment pEquipment;
-	public PlayerStats pStats;
+	public PlayerCamera pCamera;
+	public PlayerStatsHub pStatsHub;
 
 	void Awake () 
 	{
 		pNavigation.SetPlayer(this);
-		pEquipment.SetPlayer(this);
-		pStats.SetPlayer(this);
+		pCamera.SetPlayer(this);
+		pStatsHub.SetPlayer(this);
 	}
 
 	void Update () 
 	{
 		pNavigation.Tick();
-		pStats.Tick();
+		pCamera.Tick();
+		pStatsHub.Tick();
+	}
+
+	public void GetCurrentStats()
+	{
+
 	}
 }
