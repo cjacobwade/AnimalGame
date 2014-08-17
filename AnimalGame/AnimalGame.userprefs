@@ -1,0 +1,23 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Spells/StatBuffSpell.cs">
+    <Files>
+      <File FileName="Assets/Scripts/LootObj.cs" Line="8" Column="2" />
+      <File FileName="Assets/Scripts/Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Equipment.cs" Line="22" Column="2" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerEquipment.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerNavigation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Spells/AOEInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Spells/Spell.cs" Line="34" Column="17" />
+      <File FileName="Assets/Scripts/Spells/Spellbook.cs" Line="6" Column="21" />
+      <File FileName="Assets/Scripts/Spells/NextHitSpell.cs" Line="6" Column="28" />
+      <File FileName="Assets/Scripts/Spells/StatBuffSpell.cs" Line="4" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
