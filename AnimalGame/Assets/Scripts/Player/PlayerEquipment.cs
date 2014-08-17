@@ -13,6 +13,16 @@ public class PlayerEquipment : PlayerComponent
 
 	public Weapon weapon;
 
-	public Spellbook[] spells = new Spellbook[3];
-	public Blueprint[] blueprints = new Blueprint[3];
+	Spellbook[] spellbooks = new Spellbook[3];
+	Blueprint[] blueprints = new Blueprint[3];
+
+	public void SetSpellbook(int index, Spellbook spellbook)
+	{
+		spellbooks[index] = spellbook;
+	}
+
+	public void SetBlueprint(int index, Blueprint blueprint)
+	{
+		blueprints[index] = blueprint;
+	}
 }

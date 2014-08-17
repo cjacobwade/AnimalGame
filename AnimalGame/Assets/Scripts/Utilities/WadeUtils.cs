@@ -632,7 +632,9 @@ public static class WadeUtils
 	}
 	
 	#endregion
-	
+
+	#region Instantiate
+
 	/// <summary>
 	/// Use this in place of Monobehaviour's Instantiate to get GameObject reference without manually casting to GameObject.
 	/// </summary>
@@ -650,4 +652,27 @@ public static class WadeUtils
 	{
 		return (GameObject)MonoBehaviour.Instantiate (obj, pos, rot);
 	}
+
+	#endregion
+
+	#region Bits
+
+	public static bool TestBit(int flag, int bitToTest)
+	{
+		return (flag & bitToTest) != 0;
+	}
+
+	public static int SetBit(int flag, int bitToSet)
+	{
+		flag |= bitToSet;
+		return flag;
+	}
+
+	public static int ClearBit(int flag, int bitToClear)
+	{
+		flag &= ~bitToClear;
+		return flag;
+	}
+
+	#endregion
 }
