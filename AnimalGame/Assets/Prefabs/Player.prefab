@@ -14,8 +14,9 @@ GameObject:
   - 195: {fileID: 19500000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -73,19 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f621b0f8a67e64eabb4ba8e379b80391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Chris
-  health: 25
-  moveSpeed: 0
-  attackSpeed: 0
-  damageBoost: 0
-  elementalChance: 0
-  critChance: 0
-  spellCooldown: 0
-  spellPower: 0
-  spellRange: 0
-  trapCooldown: 0
-  trapPower: 0
-  equipSpell: {fileID: 0}
+  attackSpeedMultiplier: 1.29999995
+  moveSpeedMultiplier: 1.29999995
+  elementalChanceIncrement: 5
+  critChanceIncrement: 5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,17 +86,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820ea6274528a4ac4adbd0879cd5088d, type: 3}
+  m_Script: {fileID: 11500000, guid: eca843db408f940549c7ba4684796f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 0}
-  chest: {fileID: 0}
-  gloves: {fileID: 0}
-  pants: {fileID: 0}
-  boots: {fileID: 0}
-  back: {fileID: 0}
-  ring: {fileID: 0}
   weapon: {fileID: 0}
+  equipment:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spellbooks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  blueprints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,9 +132,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pNavigation: {fileID: 11400004}
-  pEquipment: {fileID: 11400002}
-  pCamera: {fileID: 0}
-  pStats: {fileID: 11400000}
+  pCamera: {fileID: 11400008}
+  pStatsHub: {fileID: 11400000}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21530bfa174f9467d955c41b61a87fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  followSpeed: 1
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -155,8 +168,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Radius: .5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1
